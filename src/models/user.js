@@ -7,8 +7,11 @@ const userSchema = mongoose.Schema({
     lastName: {
         type: String
     },
-    emailId: {
+    email: {
         type: String,
+        unique:true,
+        lowercase:true,
+        required:true
     },
     password: {
         type: String,
@@ -18,7 +21,12 @@ const userSchema = mongoose.Schema({
     },
     gender: {
         type:String
+    },
+    skills:{
+       type:[String]
     }
+},{
+    timestamps:true
 })
 
 module.exports = mongoose.model("User",userSchema);
